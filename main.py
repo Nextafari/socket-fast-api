@@ -37,8 +37,8 @@ def get_dimensions():
 @app.websocket("/ws/stream-location")
 async def stream_location(websocket: WebSocket):
     """
-    Retrieve data in parts using ijson and keeping the file open,
-    to avoid having to use load up all data in memory
+    Retrieve data in parts using ijson while keeping the file open,
+    to avoid having to load up all data in memory and run into memory exception
     """
     await socket_manager.connect(websocket)
     try:
